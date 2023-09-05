@@ -38,6 +38,9 @@ public class SharePlusMacosPlugin: NSObject, FlutterPlugin, NSSharingServicePick
       let paths = args["paths"] as! [String]
       let urls = paths.map { NSURL.fileURL(withPath: $0) }
       shareItems(urls, origin: origin, view: registrar.view!, callback: result)
+    case "shareUri":
+        let uri = args["uri"] as! String
+        shareItems([uri], origin: origin, view: registrar.view!, callback: result)
     default:
       result(FlutterMethodNotImplemented)
     }

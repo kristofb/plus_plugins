@@ -231,6 +231,7 @@ template <> struct ElementTraits<HSTRING> {
 // Vector traits describe how the collection itself is implemented.
 // This default version just uses an STL vector.
 template <typename T> struct DefaultVectorTraits : public ElementTraits<T> {
+  using ElementType = typename ElementTraits<T>::ElementType;
   typedef std::vector<ElementType> InternalVectorType;
 
   static unsigned GetSize(InternalVectorType const &vector) {

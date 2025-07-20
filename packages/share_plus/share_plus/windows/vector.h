@@ -284,6 +284,8 @@ class Vector : public Microsoft::WRL::RuntimeClass<
                    ABI::Windows::Foundation::Collections::IIterable<T>> {
   InspectableClass(IVector<T>::z_get_rc_name_impl(), BaseTrust);
 
+  using Microsoft::WRL::RuntimeClass;
+
 public:
   // T_abi is often the same as T, but if T is a runtime class, T_abi will be
   // the corresponding interface.
